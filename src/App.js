@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import Page from './Page.js'
 
 
 function App() {
   
+  
   const [pageNumber, setPagenumber] = useState(0);
+
+ 
+  const changePagenumber = (diff) => {
+    var nextPage = {pageNumber} + {diff};
+
+    if ( {nextPage} >= 0|| {nextPage} <= 5 ) {
+      setPagenumber({pageNumber} + {diff});
+    }
+  }
   
 
   return (
-  <div className="container" style={{width: '50%'}}>
+  <div className="container">
       <div>
-        <Page pageNum={pageNumber}> </Page>
+        <Page pageNum={pageNumber}/> 
       </div>
       <div>
       <button onClick={() => setPagenumber(pageNumber + 1)}>
@@ -24,6 +34,7 @@ function App() {
         Назад
       </button>
     </div>
+    <h1>{pageNumber}</h1>
   </div>
         
   
